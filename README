@@ -2,7 +2,6 @@ ticketLZ - Sistema de Tickets de Soporte
 
 	ticketLZ es un sistema de Tickets de soporte de proposito general, codigo abierto y gratis.
 
-   #################	TICKETLY     ######################
 
    DESCRIPCIÓN
    ticketLZ es un sistema para gestionar tickets de soporte usando proyectos, categorias, prioridades y mas, ideal para todo tipo de negocios, desarrollo de proyectos, gestion personal, etc, el sistema esta desarrollado con PHP y MySQL.
