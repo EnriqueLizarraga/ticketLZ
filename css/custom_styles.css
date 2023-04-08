@@ -1,0 +1,20 @@
+.table-file {
+   background-color: #244968;
+   color: white;
+   border: 1px solid #000;
+  }
+
+ .table-content {
+   background-color: #dfe4e7d1;
+   color: black;
+   border: 1px solid #000;
+  }
+    .table-file:hover {
+     cursor: pointer;
+     background-color: #244968ad;
+}
+
+  .table-content:hover {
+  	cursor: pointer;
+    background-color: #237ab7;
+}
