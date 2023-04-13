@@ -40,7 +40,11 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="image view view-first">
-                            <img class="thumb-image" style="width: 100%; display: block;" src="images/profiles/<?php echo $profile_pic; ?>" alt="image" />
+                           <div id="images-perfil-div">
+                            <img id="img_perfil" class="thumb-image" style="width: 100%; display: block;" src="images/profiles/<?php echo $profile_pic; ?>" alt="image" />
+
+                            </div>
+                    
                         </div>
                         <span class="btn btn-my-button btn-file">
                             <form method="post" id="formulario" enctype="multipart/form-data">
@@ -119,7 +123,7 @@
                 </div>
             </div>
         </div>
-    </div><!-- /page content -->
+    </div><
 
 <?php include "footer.php" ?>
 <script>
@@ -127,6 +131,8 @@
         $("input[name='file']").on("change", function(){
             var formData = new FormData($("#formulario")[0]);
             var ruta = "action/upload-profile.php";
+            var myImagePerfilDiv= document.getElementById("images-perfil-div");    // antiguo id :  
+            var content_div="";
             $.ajax({
                 url: ruta,
                 type: "POST",
@@ -134,8 +140,12 @@
                 contentType: false,
                 processData: false,
                 success: function(datos)
-                {
-                    $("#respuesta").html(datos);
+                { 
+                  $("#respuesta").html(datos);
+                    console.log("Se recibio la imagen: ",datos)
+                    var new_image=document.getElementById("new_image_profile").value
+                    document.getElementById("img_perfil").src="images/profiles/"+new_image;
+                    document.getElementById("profile_main_photo").src="images/profiles/"+new_image;                    
                 }
             });
         });

@@ -3,6 +3,7 @@
 //upload file by abisoft https://github.com/amnersaucedososa 
 include "../config/config.php";
 
+session_start();
 if (isset($_FILES["file"]))
 {
     $file = $_FILES["file"];
@@ -11,7 +12,7 @@ if (isset($_FILES["file"]))
     $tmp_n = $file["tmp_name"];
     $size = $file["size"];
     $folder = "../images/profiles/";
-    
+    $id = $_SESSION['user_id'];
     if ($type != 'image/jpg' && $type != 'image/jpeg' && $type != 'image/png' && $type != 'image/gif')
     {
       echo "Error, el archivo no es una imagen"; 
@@ -25,10 +26,12 @@ if (isset($_FILES["file"]))
         $src = $folder.$name;
        @move_uploaded_file($tmp_n, $src);
 
-       $query=mysqli_query($con, "UPDATE user set profile_pic=\"$name\"");
+       $query=mysqli_query($con, "UPDATE user set profile_pic=\"$name\" where id=$id");
+       $profile_pic= $name;
        if($query){
         echo "<div class='alert alert-success' role='alert'>
             <button type='button' class='close' data-dismiss='alert'>&times;</button>
+            <input id='new_image_profile' value='".$profile_pic."' style='display:none'>
             <strong>¡Bien hecho!</strong> Perfil Actualizado Correctamente
         </div>";
        }

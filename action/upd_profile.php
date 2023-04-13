@@ -20,6 +20,7 @@
 
 	if(isset($_POST['token'])){
 		$update=mysqli_query($con,"UPDATE user set name=\"$name\",email=\"$email\" where id=$id");
+	    echo $update
 		if ($update) {
 			$success=sha1(md5("datos actualizados"));
             header("location: ../dashboard.php?success=$success");

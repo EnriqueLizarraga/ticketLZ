@@ -83,7 +83,7 @@
                             <!-- menu profile quick info -->
                                 <div class="profile clearfix">
                                     <div class="profile_pic">
-                                        <img src="images/profiles/<?php echo $profile_pic;?>" alt="<?php echo $name;?>" class="img-circle profile_img">
+                                        <img id="profile_main_photo" src="images/profiles/<?php echo $profile_pic;?>" alt="<?php echo $name;?>" class="img-circle profile_img">
                                     </div>
                                     <div class="profile_info">
                                         <span>Bienvenido,</span>
